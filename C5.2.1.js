@@ -17,11 +17,25 @@ const xml = `<list>
   </student>
 </list>`;
 
-const parser = new DOMParser();
-const xmlString = parser.parseFromString(xml, 'text/xml');
+//const parser = new DOMParser();
+//const xmlString = parser.parseFromString(xml, 'text/xml');
+
+function parseXML(xmlString) {
+    var parser = new DOMParser();
+    var docError = parser.parseFromString('INVALID', 'text/xml');
+    var parsererrorNS = docError.getElementsByTagName("parsererror")[0].namespaceURI;
+    var doc = parser.parseFromString(xmlString, 'text/xml');
+    if (doc.getElementsByTagNameNS(parsererrorNS, 'parsererror').length > 0) {
+        throw new Error('Error parsing XML');
+    }
+    return doc;
+}
+
+const xmlString = parseXML(xml)
 
 const students = [];
 const studentNode = xmlString.querySelectorAll('student');
+
 for (let i = 0; i < studentNode.length; i++) {
   const student = studentNode[i];
   const name = `${student.querySelector('first').textContent} ${student.querySelector('second').textContent}`;
