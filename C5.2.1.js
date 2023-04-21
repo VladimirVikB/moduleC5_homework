@@ -21,9 +21,9 @@ const parser = new DOMParser();
 const xmlString = parser.parseFromString(xml, 'text/xml');
 
 const students = [];
-const studentElements = xmlString.querySelectorAll('student');
-for (let i = 0; i < studentElements.length; i++) {
-  const student = studentElements[i];
+const studentNode = xmlString.querySelectorAll('student');
+for (let i = 0; i < studentNode.length; i++) {
+  const student = studentNode[i];
   const name = `${student.querySelector('first').textContent} ${student.querySelector('second').textContent}`;
   const age = Number(student.querySelector('age').textContent);
   const prof = student.querySelector('prof').textContent;
