@@ -5,10 +5,12 @@ const button = document.querySelector('#button');
 const clearButton = document.querySelector('#clearButton');
 const result = document.querySelector('#result');
 
+// Проверка на вхождение в диапазон
 function checkInput(num) {
   return num >= 100 && num <= 300;
 }
 
+//Запрос
 async function handleClick() {
 
   const num1 = Number(input1.value);
@@ -28,7 +30,7 @@ async function handleClick() {
     }
   }
 }
-
+// Очистка формы
 function clearForm() {
   input1.value = '';
   input2.value = '';
