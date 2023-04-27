@@ -1,5 +1,6 @@
 //Чтобы выглядело красиво нужно подключить стили.
 
+// скрипт срабатывает раньше чем DOM загружен
 document.addEventListener('DOMContentLoaded', function() {
     function getImages(limit, callback, onError) {
         const xhr = new XMLHttpRequest();
