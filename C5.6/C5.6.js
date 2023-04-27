@@ -9,25 +9,23 @@ function checkInput(num) {
   return num >= 100 && num <= 300;
 }
 
-function handleClick() {
+async function handleClick() {
 
   const num1 = Number(input1.value);
   const num2 = Number(input2.value);
-
 
   if (isNaN(num1) || isNaN(num2) || !checkInput(num1) || !checkInput(num2)) {
     result.innerHTML = 'Одно из чисел вне диапазона от 100 до 300';
   } else {
     const url = `https://picsum.photos/${num1}/${num2}`;
-    fetch(url)
-      .then(response => {
-        const img = document.createElement('img');
-        img.src = response.url;
-        result.appendChild(img);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    try {
+      const response = await fetch(url);
+      const img = document.createElement('img');
+      img.src = response.url;
+      result.appendChild(img);
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 
