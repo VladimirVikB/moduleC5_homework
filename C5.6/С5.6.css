@@ -1,0 +1,12 @@
+.button {
+  background-color: blue;
+  color: white;
+  border-radius: 5px;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+div {
+  margin: 20px 20px;
+}
