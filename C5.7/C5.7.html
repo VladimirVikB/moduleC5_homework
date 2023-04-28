@@ -3,8 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="C5.7.css">
 </head>
 <body>
-
+<div class="main">
+  <h1>Задание №5</h1>
+  <div class="form">
+   <div class="input-div">
+    <label for="page-input">Номер страницы:</label>
+       <p>Введите число в диапазоне от 1 до 10</p>
+    <input type="text" id="page-input">
+   </div>
+   <div class="input-div">
+    <label for="limit-input">Лимит:</label>
+       <p>Введите число в диапазоне от 1 до 10</p>
+    <input type="text" id="limit-input">
+   </div>
+   <button id="request-btn">Запрос</button>
+  </div>
+  <div class="error-message" id="error-message"></div>
+  <div class="photos-div" id="photos-div"></div>
+ </div>
+<script src="C5.7.js"></script>
 </body>
 </html>
+
+
