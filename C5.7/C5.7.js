@@ -35,14 +35,13 @@ requestBtn.addEventListener('click', async () => {
   localStorage.setItem('currentPage', currentPage);
   localStorage.setItem('currentLimit', currentLimit);
 
-  // Очищаем сообщение об ошибке
   errorMessage.textContent = '';
 
   try {
     const response = await fetch(`https://picsum.photos/v2/list?page=${currentPage}&limit=${currentLimit}`);
     const data = await response.json();
 
-// Очищаем контейнер с фотографиями
+// Очищаем div с фотографиями
     photosDiv.innerHTML = '';
 
       // Создаем элементы для каждой фотографии и добавляем их в контейнер
